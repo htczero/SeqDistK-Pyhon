@@ -17,7 +17,7 @@ class MarkovData:
         return self._markov_dic[k][r]
 
     @staticmethod
-    @nb.jit('float64[:](int32[:],int32,float64[:],int32,int32)', nopython=True, fastmath=True)
+    @nb.jit('float64[:](int32[:],int32,float64[:],int32,int32)', nopython=True, fastmath=True, parallel=True)
     def _cal_markov_possibility(ktuple_1: np.ndarray, total_1: int, markov_tmp: np.ndarray, r: int,
                                 k: int) -> np.ndarray:
         ktuple_k = np.arange(4 ** k)

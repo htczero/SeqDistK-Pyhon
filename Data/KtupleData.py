@@ -13,7 +13,7 @@ class KtupleData:
         return self._ktuple_dic[k]
 
     @staticmethod
-    @nb.jit('int32[:](uint8[:], int32)')
+    @nb.jit('int32[:](int32[:], int32)')
     def _count_ktuple(sequence: np.ndarray, k: int) -> np.ndarray:
         base = sequence.astype(dtype=np.int32)
         total = base

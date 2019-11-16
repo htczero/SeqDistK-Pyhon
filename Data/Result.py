@@ -1,21 +1,19 @@
-from typing import Dict, List
+from typing import List
 import numpy as np
 import os
-from multiprocessing import Lock
-from queue import Queue
 
 
 class Result:
     def __init__(self, size: int):
         self._dic_result = dict()
         self._size = size
-        self._lock = Lock()  # type: Lock
+        # self._lock = Manager().Lock()  # type: # Lock
 
     def add(self, key: str, idx: int, idy: int, result: float):
-        with self._lock:
-            self._dic_result.setdefault(key, np.zeros((self._size, self._size), dtype=np.float64))
-            self._dic_result[key][idx][idy] = result
-            self._dic_result[key][idy][idx] = result
+        # with self._lock:
+        self._dic_result.setdefault(key, np.zeros((self._size, self._size), dtype=np.float64))
+        self._dic_result[key][idx][idy] = result
+        self._dic_result[key][idy][idx] = result
 
     def save_to_file(self, save_dir: str, name_list: List[str]):
         head = 'name/name'

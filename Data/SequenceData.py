@@ -38,7 +38,7 @@ class SequenceData:
         return SequenceData._convert(lst.view(np.uint8))
 
     @staticmethod
-    @nb.jit('uint8[:](uint8[:])', nopython=True, fastmath=True)
+    @nb.jit('uint8[:](uint8[:])', nopython=True, fastmath=True, parallel=True)
     def _convert(char_list) -> np.ndarray:
         seq = np.zeros(len(char_list), dtype=np.uint8)
         for i, char in enumerate(char_list):
