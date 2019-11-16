@@ -5,7 +5,9 @@ Calculate the dissimilarity between sequence
 numpy 1.16  
 numba 0.43.1  
 tqdm  
-python 3.7 
+python 3.7  
+
+Anaconda3 is recommended.
 
 
 ### Usage  
@@ -38,3 +40,14 @@ Multiple directory
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--seq_n.fasta  
 For each dir_x, it can be seen as a case of single directory. 
+
+
+### Suport Dissimilarity  
+Eu  
+Ma  
+Ch  
+d2   
+Hao 
+d2S  
+d2Star  
+ 
