@@ -1,3 +1,9 @@
+# -*- coding: UTF-8 -*-
+# @File: MarkovData.py
+# @Author: htczero
+# @Create Data:  2019/11/16
+# @Modify Data:  2019/11/16
+# @Email: htczero@hotmail.com
 import numpy as np
 from typing import Dict
 import numba as nb

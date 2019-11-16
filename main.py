@@ -1,3 +1,9 @@
+# -*- coding: UTF-8 -*-
+# @File: main.py
+# @Author: htczero
+# @Create Data:  2019/11/16
+# @Modify Data:  2019/11/16
+# @Email: htczero@hotmail.com
 from Core import Core
 import os
 from typing import List

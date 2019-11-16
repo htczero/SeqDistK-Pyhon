@@ -1,3 +1,9 @@
+# -*- coding: UTF-8 -*-
+# @File: Core.py
+# @Author: htczero
+# @Create Data:  2019/11/16
+# @Modify Data:  2019/11/16
+# @Email: htczero@hotmail.com
 from typing import List, Callable
 from Data import SequenceData
 from Data import Result

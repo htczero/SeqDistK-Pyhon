@@ -1,3 +1,9 @@
+# -*- coding: UTF-8 -*-
+# @File: SequenceData.py
+# @Author: htczero
+# @Create Data:  2019/11/16
+# @Modify Data:  2019/11/16
+# @Email: htczero@hotmail.com
 import numpy as np
 import numba as nb
 from .KtupleData import KtupleData

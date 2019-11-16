@@ -1,3 +1,9 @@
+# -*- coding: UTF-8 -*-
+# @File: Result.py
+# @Author: htczero
+# @Create Data:  2019/11/16
+# @Modify Data:  2019/11/16
+# @Email: htczero@hotmail.com
 from typing import List
 import numpy as np
 import os
