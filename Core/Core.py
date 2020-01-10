@@ -60,9 +60,9 @@ class Core:
             seq.clear(k)
 
     @staticmethod
-    def star(k_list: List[int], seq_dir_list: str, dissimilirary_list: List[str],
+    def star(k_list: List[int], seq_dir: str, dissimilirary_list: List[str],
              save_dir: str, markov_list: List[int] = None):
-        dirs = Core.recurrence_load(seq_dir_list)
+        dirs = Core.recurrence_load(seq_dir)
         for dir_ in dirs:
             name = os.path.split(dir_)[-1]
             print('{} start.................'.format(name))

@@ -36,10 +36,15 @@ class SequenceData:
 
     @staticmethod
     def _load_sequence(file_path: str) -> np.ndarray:
+        seq = ''
         with open(file_path, 'r', encoding='utf-8') as f:
             lines = f.readlines()
-        lst = np.concatenate(
-            [np.array(line.strip('\n'), 'c') for line in lines if line[0] in SequenceData.Valid_Char])
+            for line in lines :
+                if line[0] in SequenceData.Valid_Char :
+                    seq += line.strip('\n')
+        # lst = np.concatenate(
+        #     [np.array(line.strip('\n'), 'c') for line in lines if line[0] in SequenceData.Valid_Char])
+        lst = np.array(seq, 'c')
 
         return SequenceData._convert(lst.view(np.uint8))
 

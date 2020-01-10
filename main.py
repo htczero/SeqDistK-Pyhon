@@ -6,20 +6,11 @@
 # @Email: htczero@hotmail.com
 from Core import Core
 import os
-from typing import List
+from typing import List, Optional
 
 dic = dict()
 
-
-def get_files_path(dir_path: str) -> List[str] or None:
-    try:
-        return [os.path.join(dir_path, file_path) for file_path in os.listdir(dir_path)]
-    except:
-        print('Check your directory which contains sequence please')
-        return None
-
-
-def get_k_list(k_str: str) -> List[int] or None:
+def get_k_list(k_str: str) -> Optional[List[int]]:
     try:
         tmp = k_str.split('-')
         if len(tmp) == 1:
@@ -33,7 +24,7 @@ def get_k_list(k_str: str) -> List[int] or None:
         return None
 
 
-def get_dissimilarity_list(diss_str: str) -> List[str] or None:
+def get_dissimilarity_list(diss_str: str) -> Optional[List[str]]:
     try:
         func_lst = ['Ma', 'Ch', 'Eu', 'd2', 'Hao', 'd2S', 'd2Star']
         return [func_lst[int(i)] for i in diss_str.split(',')]
@@ -42,7 +33,7 @@ def get_dissimilarity_list(diss_str: str) -> List[str] or None:
         return None
 
 
-def get_r_list(r_str: str or None) -> List[int] or None:
+def get_r_list(r_str: Optional[str]) ->Optional[List[int]]:
     try:
         return [int(r_) for r_ in r_str.split(',')] if r_str is not None else None
     except:
@@ -88,7 +79,7 @@ if __name__ == '__main__':
         # endregion
 
         # region markov
-        if '6' in func or '7' in func:
+        if '5' in func or '6' in func:
             print('Markov possibility order')
             print('For single order, input a interger(>=0)')
             print("For a series of order, separation with ','. For example(without quotation marks), '0, 1, 2, 3'")
@@ -119,8 +110,8 @@ if __name__ == '__main__':
         print("Check the parameters : 'yes' or 'no'")
         result = input()
         if result == 'yes':
-            Core(get_k_list(dic['k']), get_files_path(dic['path']), get_dissimilarity_list(dic['func']), dic['save'],
-                 get_r_list(dic['r'])).star()
+            Core.star(get_k_list(dic['k']), dic['path'], get_dissimilarity_list(dic['func']), dic['save'],
+                 get_r_list(dic['r']))
         else:
             dic.clear()
         # endregion
