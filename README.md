@@ -1,4 +1,6 @@
 # SeqDistK-Pyhon
+### Home 
+
 Calculate the dissimilarity between sequence
 
 ### Requirments
@@ -10,8 +12,68 @@ python 3.7
 Anaconda3 is recommended.
 
 
-### Usage  
-python main.py  
+
+
+### Example  
+0. Start the program 
+``` python
+python main.py
+```    
+If you have N sequences file in a directory and the directory path is '/home/seqs'  
+
+1. Input the directory path  
+``` python
+Input the directory path of sequences : /home/seq
+```  
+
+2. Input the k you want to calculate(k > 0)  
+For single k, input a integer(>0), such as 4  
+``` python  
+Input the k : 4
+```
+
+For a series of k, input kmin-kmax-step. For example(without quotation marks), '2-10-2', it means, [2, 4, 6, 8, 10]"  
+``` python  
+Input the k : 2-10-2
+```
+
+3. Select the dissimilarities  
+``` python  
+0. Ma  
+1. Ch  
+2. Eu  
+3. d2  
+4. Hao  
+5. d2S  
+6. d2Star  
+For example(without quotation marks), '1,2,3,4'  
+Input the dissimilarities : 0,1,2,4,5
+```  
+
+4. If in the step 3, d2S or d2Star is selected. You need to input "Markov possibility order"  
+For single order, input a interger(>=0)  
+``` python
+Input the possibility order : 2
+```  
+
+For a series of order, separation with ','. For example(without quotation marks), '0, 1, 2, 3'  
+```python
+Input the possibility order : 0,1,2
+```  
+
+5. Input the path you want to save. For example, "/home/save"
+``` python  
+Input the path you want to save : /home/save
+```  
+
+6. Check the parameters. 
+``` python
+Check the parameters : 'yes' or 'no'  
+yes  # input yes and press enter if the parameters are correct.
+```  
+
+### Manuals  
+
 
 ### Structure of directory  
 Single directory  
@@ -41,13 +103,5 @@ Multiple directory
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--seq_n.fasta  
 For each dir_x, it can be seen as a case of single directory. 
 
-
-### Suport Dissimilarity  
-Eu  
-Ma  
-Ch  
-d2   
-Hao 
-d2S  
-d2Star  
  
+### FAQ  

@@ -83,7 +83,7 @@ if __name__ == '__main__':
             print('Markov possibility order')
             print('For single order, input a interger(>=0)')
             print("For a series of order, separation with ','. For example(without quotation marks), '0, 1, 2, 3'")
-            print('Input the possibility order:')
+            print('Input the possibility order : ')
             r = input()
             dic.setdefault('r', r)
             print('\n\n')
