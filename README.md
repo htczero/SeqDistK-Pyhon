@@ -104,4 +104,10 @@ Multiple directory
 For each dir_x, it can be seen as a case of single directory. 
 
  
+### For Windows  
+For Windows, we recommend a Windows version.  
+https://github.com/htczero/SeqDistK  
+It is more faster than and more convenient python version.
+
+
 ### FAQ  
