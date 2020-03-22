@@ -5,7 +5,7 @@ https://github.com/htczero/SeqDistK. It is C++ based and much faster than this p
 
 # SeqDistK-Pyhon
 
-### Home 
+### Introduction 
 
 Phylogenetic tools are fundamental to studies of evolution and taxonomy. In this paper, we present SeqDistK, a novel tool for alignment-free phylogenetic analysis. SeqDistK batch computes the pairwise distance matrix between biological sequences, using seven popular k-mer based dissimilari-ty measures. Based on the matrix, SeqDistK constructs a phylogenetic tree using the Unweighted Pair Group Method with Arithmetic Mean algorithm. Using a golden-standard dataset of 16S rRNA sequences and the associated phylogenetic tree, we benchmarked the accuracy and efficiency of SeqDistK. We found the measure d2S (k=5, M=2) was the best, which correctly clustered and classified all sequences. Compared to multiple aligners such as Muscle, Clustalw2 and Mafft, SeqDistK was tens to hundreds of times faster, which helps eliminating the computation limit encountered by large-scale phylogenetic analysis. 
 
