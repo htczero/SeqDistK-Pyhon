@@ -9,6 +9,14 @@ https://github.com/htczero/SeqDistK. It is C# based and much faster than this py
 
 Phylogenetic tools are fundamental to studies of evolution and taxonomy. In this paper, we present SeqDistK, a novel tool for alignment-free phylogenetic analysis. SeqDistK batch computes the pairwise distance matrix between biological sequences, using seven popular k-mer based dissimilari-ty measures. Based on the matrix, SeqDistK constructs a phylogenetic tree using the Unweighted Pair Group Method with Arithmetic Mean algorithm. Using a golden-standard dataset of 16S rRNA sequences and the associated phylogenetic tree, we benchmarked the accuracy and efficiency of SeqDistK. We found the measure d2S (k=5, M=2) was the best, which correctly clustered and classified all sequences. Compared to multiple aligners such as Muscle, Clustalw2 and Mafft, SeqDistK was tens to hundreds of times faster, which helps eliminating the computation limit encountered by large-scale phylogenetic analysis. 
 
+### Overview  
+
+SeqDistK, which can calculate the dissimilarity between sequences, a novel tool to efficiently compute seven widely accepted k-mer statistics: Chebyshev, Manhattan, Euclidian, Hao, d2, d2S and d2star, and perform alignment-free phylogenetic analysis. SeqDistK constructs a phylogenetic tree from a batch of input sequences in four steps: (1) it counts the k-mer frequency in each input sequence; (2) it merges the obtained k-mer frequencies into a 4N-by-N matrix, where N is the number of input sequences; (3) it uses the provided dissimilarity measure, and parameters k and M (if needed) to calculate the pairwise distance, obtaining a N-by-N distance matrix, where M is the order of background Markov model; (4) it applies the Unweighted Pair Group Method with Arithmetic Mean (UPGMA) algorithm to the distance matrix and constructs the phylogenetic tree.  
+  
+Fig. 1. The Strategy of SeqDistK. In (a), we illustrated the algorithm and associated data structure for k-mer searching, counting and storage as implemented in SeqDistK. In principle, we mathematically transformed k-mer to an index that can randomly address and operate an array-based memory storage efficiently. Phylogenetic trees from 16S rRNA sequences using 7 dissimilarity measures (b) the ground truth tree and (c) dissimilarity measures d2S(k=8, M=0)  
+
+![Strategy](/doc/img/1.png)
+
 ### Requirments
 
 numpy 1.16  
