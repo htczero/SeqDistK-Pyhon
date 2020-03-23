@@ -165,4 +165,4 @@ For each dir_x, it can be seen as a case of single directory.
 &nbsp;&nbsp;&nbsp;&nbsp;A4:&nbsp;&nbsp;Of course.
 
 ### CONTACTS  
-Questions and comments shall be addressed to Tianlai at htczero@hotmail.com.
+Questions and comments shall be writted in issue.
