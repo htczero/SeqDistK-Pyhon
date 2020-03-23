@@ -1,7 +1,7 @@
 ### For Windows Users 
 
 For Windows Users, we recommend a Windows distribution with convenient graphical user interface:  
-https://github.com/htczero/**SeqDisk**. It is C# based and much faster than this python distribution.
+https://github.com/htczero/SeqDisk. It is C# based and much faster than this python distribution.
 
 # **SeqDisk**-Pyhon
 
