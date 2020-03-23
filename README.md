@@ -1,33 +1,32 @@
 ### For Windows Users 
 
 For Windows Users, we recommend a Windows distribution with convenient graphical user interface:  
-https://github.com/htczero/SeqDistK. It is C# based and much faster than this python distribution.
+https://github.com/htczero/**SeqDisk**. It is C# based and much faster than this python distribution.
 
-# SeqDistK-Pyhon
+# **SeqDisk**-Pyhon
 
-### Introduction 
+## Introduction 
 
-Phylogenetic tools are fundamental to studies of evolution and taxonomy. In this paper, we present SeqDistK, a novel tool for alignment-free phylogenetic analysis. SeqDistK batch computes the pairwise distance matrix between biological sequences, using seven popular k-mer based dissimilari-ty measures. Based on the matrix, SeqDistK constructs a phylogenetic tree using the Unweighted Pair Group Method with Arithmetic Mean algorithm. Using a golden-standard dataset of 16S rRNA sequences and the associated phylogenetic tree, we benchmarked the accuracy and efficiency of SeqDistK. We found the measure d2S (k=5, M=2) was the best, which correctly clustered and classified all sequences. Compared to multiple aligners such as Muscle, Clustalw2 and Mafft, SeqDistK was tens to hundreds of times faster, which helps eliminating the computation limit encountered by large-scale phylogenetic analysis. 
+Algorithms for constructing phylogenetic trees are fundamental to taxonomy studies. Phylogenetic tools are fundamental to studies of evolution and taxonomy. we present **SeqDisk**, a novel tool for alignment-free phylogenetic analysis. **SeqDisk** batch computes the pairwise distance matrix between biological sequences, using seven popular k-mer based dissimilarity measures. Based on the matrix, **SeqDisk** constructs a phylogenetic tree using the Unweighted Pair Group Method with Arithmetic Mean algorithm. we illustrated the steps of **SeqDisk** constructing a phylogenetic tree: (1) it counts k-mer occurrence in each input sequence; (2) it gathers k-mer occurrence vectors from all input sequences; (3) it computes the distance matrix of the input sequences using specifiable dissimilarity measures; (4) it draws the phylogenetic tree using the Unweighted Pair Group Method with Arithmetic Mean (UPGMA) algorithm via Phylip. Using a golden-standard dataset of 16S rRNA sequences and the associated phylogenetic tree, we benchmarked the accuracy and efficiency of **SeqDisk**.
 
-### Overview  
+**SeqDisk** was implemented with several advanced programming techniques: (1) It makes full use of multi-thread programming to improve CPU use through multi-core optimization. It is highly responsive even on personal computers. (2) It has a graphical interface that is simple, intuitive, and easy to interact with. (3) It is fully compatible with all current versions of a major operation system – MS Windows, Linux and MAC platforms. 
+phylogenetic analysis. 
 
-SeqDistK, which can calculate the dissimilarity between sequences, a novel tool to efficiently compute seven widely accepted k-mer statistics: Chebyshev, Manhattan, Euclidian, Hao, d2, d2S and d2star, and perform alignment-free phylogenetic analysis. SeqDistK constructs a phylogenetic tree from a batch of input sequences in four steps: (1) it counts the k-mer frequency in each input sequence; (2) it merges the obtained k-mer frequencies into a 4N-by-N matrix, where N is the number of input sequences; (3) it uses the provided dissimilarity measure, and parameters k and M (if needed) to calculate the pairwise distance, obtaining a N-by-N distance matrix, where M is the order of background Markov model; (4) it applies the Unweighted Pair Group Method with Arithmetic Mean (UPGMA) algorithm to the distance matrix and constructs the phylogenetic tree.  
-  
-Fig. 1. The Strategy of SeqDistK. In (a), we illustrated the algorithm and associated data structure for k-mer searching, counting and storage as implemented in SeqDistK. In principle, we mathematically transformed k-mer to an index that can randomly address and operate an array-based memory storage efficiently. Phylogenetic trees from 16S rRNA sequences using 7 dissimilarity measures (b) the ground truth tree and (c) dissimilarity measures d2S(k=8, M=0)  
+## Overview  
 
-![Strategy](/doc/img/1.png)
+**SeqDisk**, which can calculate the dissimilarity between sequences, a novel tool to efficiently compute seven widely accepted k-mer statistics: Chebyshev, Manhattan, Euclidian, Hao, d2, d2S and d2star, and perform alignment-free phylogenetic analysis. In Fig. 1., we illustrated the algorithm and associated data structure for k-mer searching, counting and storage as implemented in **SeqDisk**. In principle, we mathematically transformed k-mer to an index that can randomly address and operate an array-based memory storage efficiently. Given the fact that k-mer based statistics were mostly useful for phylogenetic analysis when k is relatively small (<16), we implemented in **SeqDisk** a mature and simple algorithm to count k-mers frequency. (1) we record the k-mer frequency into a 4^k vector for each input sequence. If N input sequences were to be compared, their merged vectors are stored in a 4^k N matrix. (2) a user specifies the desired dissimilarity measure(s), which **SeqDisk** will use to calculate the distance matrix, which is a N-by-N matrix. (3) Finally, with this distance/dissimilarity matrix, **SeqDisk** employs the Unweighted Pair Group Method with Arithmetic Mean (UPGMA) to construct the phylogenetic tree. At the last step, **SeqDisk** can also perform clustering analysis of the sequences based on the distance matrix. 
 
-### Requirments
+![Strategy](/doc/img/1.png) 
 
-numpy 1.16  
-numba 0.43.1  
-tqdm  
-python 3.7  
 
-MiniConda is recommended. 
-Using Anaconda3 is also ok. 
+## Example1    
 
-### Example  
+In the example illustrated in Fig. 2, we analyzed four input sequences with 5-mer statistics and constructed their phylogenetic tree. When k=5, there are 4^5 combinations of k-mer. Taking GCCGT as our example, in the first step, we counted the frequency of GCCGT. In the next step, the frequency vectors of GCCGT and all other 5-mers from each sequence were combined to form a matrix. In the third step, we computed the dissimilarity matrix by pairwise comparison of all k-mer vectors using the dissimilarity measures. And in the last step, we used UPGMA to draw the inferred phylogenetic tree using the open source software Phylip.  
+
+![Strategy](/doc/img/2.png) 
+
+## Example2   
+ We can use 7 steps to complete the program of **SeqDisk**
 0. Start the program 
 ``` python
 python main.py
@@ -93,9 +92,28 @@ Input the path you want to save : /home/save
 ``` python
 Check the parameters : 'yes' or 'no'  
 yes  # input yes and press enter if the parameters are correct.
-```  
+```
 
-### Manuals  
+
+## Example3
+
+While alignment-free phylogenetic analysis is unrestricted to specific genes, we used a golden standard 16S rRNA dataset as benchmark for its wide acceptance. We downloaded a golden standard dataset of 100 16S rRNA sequences and the associated and expert-curated phylogenetic tree from the All-species Living Tree Project (LTP) by Yilmaz and Beccati et al. All sequenced strains of archaea and bacterial species were classified and preserved in LTP. There are 7 dissimilarity measures Eu, Ma, Ch, d2, d2star, d2S and Hao in **SeqDisk**. We draw the phylogenetic tree using dissimilarity measure d2S as in Figs. 3. (a) and (b). 
+
+![Strategy](/doc/img/3.png) 
+
+
+## Requirments
+
+numpy 1.16  
+numba 0.43.1  
+tqdm  
+python 3.7  
+
+MiniConda is recommended. 
+Using Anaconda3 is also ok. 
+
+
+## Manuals  
 
 ### Structure of working directory  
 Single directory  
@@ -126,7 +144,7 @@ Multiple directory
 
 For each dir_x, it can be seen as a case of single directory. 
 
-### FAQ  
+## FAQ  
 &nbsp;&nbsp;&nbsp;&nbsp;Q1:&nbsp;&nbsp;Can I pause if the program is running?  
 &nbsp;&nbsp;&nbsp;&nbsp;A1:&nbsp;&nbsp;No
 
@@ -138,3 +156,6 @@ For each dir_x, it can be seen as a case of single directory.
 
 &nbsp;&nbsp;&nbsp;&nbsp;Q4:&nbsp;&nbsp;Can I use it in MacOS?    
 &nbsp;&nbsp;&nbsp;&nbsp;A4:&nbsp;&nbsp;Of course.
+
+### CONTACTS  
+Questions and comments shall be addressed to Tianlai at htczero@hotmail.com.
